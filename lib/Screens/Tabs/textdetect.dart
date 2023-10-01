@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -62,22 +63,22 @@ class _TextDetectionState extends State<TextDetection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Text Detection"),centerTitle: true,),
+      appBar: AppBar(title: const Text("Text Detection"),centerTitle: true,),
       body:  Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
          imagefile==null? Container(
-           width: 200,
-           height: 200,
-          decoration: BoxDecoration(
+           width: 200.w,
+           height: 200.h,
+          decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage("assets/images/no-results.png"))
           ),
          ):Container(
-             width: 200,
-             height: 200,
+             width: 200.w,
+             height: 200.h,
              child: Image.file(File(imagefile!.path))),
-          const SizedBox(height: 30,),
+           SizedBox(height: 30.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -88,16 +89,16 @@ class _TextDetectionState extends State<TextDetection> {
                   onPressed: (){
                   getImage(ImageSource.gallery);
                   },
-                  child: Column(
-                children: const [
+                  child: const Column(
+                children:  [
                   Icon(Icons.image),
                   Text("Gallery")
                 ],
               )),
               ElevatedButton(onPressed: (){
                 getImage(ImageSource.camera);
-              }, child: Column(
-                children: const [
+              }, child: const Column(
+                children:  [
                   Icon(Icons.camera_alt),
                   Text("Camera")
                 ],
@@ -106,12 +107,12 @@ class _TextDetectionState extends State<TextDetection> {
           ),
           const SizedBox(height: 10,),
           Container(
-            width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              height: 100,
+            width: double.infinity.w,
+              padding:  REdgeInsets.all(20),
+              height: 100.h,
                 child: ListView(
                   children: [
-                    Text(textRec,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
+                    Text(textRec,style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 12.sp),),
                   ],
                 ),
               )

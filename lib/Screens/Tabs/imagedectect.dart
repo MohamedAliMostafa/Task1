@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -50,22 +51,22 @@ class _ImageDetectState extends State<ImageDetect> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Face Detection"),centerTitle: true,),
+      appBar: AppBar(title: const Text("Face Detection"),centerTitle: true,),
       body:  Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           imagefile==null? Container(
-            width: 200,
-            height: 200,
+            width: 200.w,
+            height: 200.h,
             decoration: const BoxDecoration(
                 image: DecorationImage(image: AssetImage("assets/images/no-results.png"))
             ),
           ):Container(
-              width: 200,
-              height: 200,
+              width: 200.w,
+              height: 200.h,
               child: Image.file(File(imagefile!.path))),
-          const SizedBox(height: 30,),
+           SizedBox(height: 30.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -76,28 +77,28 @@ class _ImageDetectState extends State<ImageDetect> {
                   onPressed: (){
                     getImage(ImageSource.gallery);
                   },
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children:  [
                       Icon(Icons.image),
                       Text("Gallery")
                     ],
                   )),
               ElevatedButton(onPressed: (){
                 getImage(ImageSource.camera);
-              }, child: Column(
-                children: const [
+              }, child: const Column(
+                children: [
                   Icon(Icons.camera_alt),
                   Text("Camera")
                 ],
               ))
             ],
           ),
-          const SizedBox(height: 10,),
+           SizedBox(height: 10.h,),
           Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 70,vertical: 20),
-            height: 100,
-            child: Text("$numOfPerson Person",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
+            width: double.infinity.w,
+            padding: REdgeInsets.symmetric(horizontal: 70,vertical: 20),
+            height: 100.h,
+            child: Text("$numOfPerson Person",style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 12.sp),),
 
 
           )

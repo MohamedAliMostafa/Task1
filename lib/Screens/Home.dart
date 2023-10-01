@@ -31,7 +31,7 @@ List<Widget>Tab=[TextDetection(),ImageDetect()];
           });
           
           },
-          items: [
+          items: const [
             Icon(Icons.text_fields),
             Icon(Icons.image_search)
           ]),
